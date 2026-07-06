@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:8.4
+    container_name: vetsupply_db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root2025
+      MYSQL_DATABASE: bd_nombre_apellido_clan
+      MYSQL_USER: vetsupply_admin
+      MYSQL_PASSWORD: vetsupply_2025
+    ports:
+      - "3306:3306"
+    volumes:
+      - vetsupply_data:/var/lib/mysql
+      - ./csv:/csv
+
+
+volumes:
+  vetsupply_data:
